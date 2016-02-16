@@ -1,6 +1,6 @@
 /**
- * @name storm-equal-height: 
- * @version 0.1.0: Wed, 10 Feb 2016 11:51:00 GMT
+ * @name storm-equal-height: Layout helper to equalise the height of a set of DOM elements
+ * @version 0.1.0: Tue, 16 Feb 2016 20:19:41 GMT
  * @author stormid
  * @license MIT
  */(function(root, factory) {
@@ -14,7 +14,7 @@
 }(this, function() {
 	'use strict';
     
-    var instance,
+    var instances = [],
         defaults = {
             minWidth: 768 
         },
@@ -53,10 +53,11 @@
         if(els.length === 0) {
             throw new Error('Equal Height cannot be initialised, no augmentable elements found');
         }
+        els.forEach(function(el){
+			instances.push(new StormEqualHeight([].slice.call(el.children), opts));
+		});
         
-        instance = new StormEqualHeight(els, opts);
-        
-        return instance;
+        return instances;
     }
     
     function reload(els, opts) {
@@ -65,7 +66,7 @@
     }
     
     function destroy() {
-        instance = null;
+        instances = null;
     }
 	
 	return {
