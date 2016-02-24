@@ -9,7 +9,7 @@
 }(this, function() {
 	'use strict';
     
-    var instance,
+    var instances = [],
         defaults = {
             minWidth: 768 
         },
@@ -48,10 +48,11 @@
         if(els.length === 0) {
             throw new Error('Equal Height cannot be initialised, no augmentable elements found');
         }
+        els.forEach(function(el){
+			instances.push(new StormEqualHeight([].slice.call(el.children), opts));
+		});
         
-        instance = new StormEqualHeight(els, opts);
-        
-        return instance;
+        return instances;
     }
     
     function reload(els, opts) {
@@ -60,7 +61,7 @@
     }
     
     function destroy() {
-        instance = null;
+        instances = null;
     }
 	
 	return {
