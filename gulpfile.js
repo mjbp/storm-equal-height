@@ -35,6 +35,10 @@ var onError = function(err) {
     this.emit('end');
 };
 
+var componentName = function(){
+	return pkg.name.split('-').map(function(w){ return w.substr(0, 1).toUpperCase() + w.substr(1); }).join();
+};
+
 /************************
  *  Task definitions 
  ************************/
@@ -50,7 +54,8 @@ gulp.task('js:async', function() {
         .pipe(header(banner, {pkg : pkg}))
 		.pipe(browserify({
           insertGlobals : true,
-          debug : false
+          debug : false,
+		  standalone: componentName()
         }))
 		.pipe(uglify())
   		.pipe(rename({suffix: '.async.min'}))
@@ -64,24 +69,8 @@ gulp.task('js:compress', function() {
 		.pipe(gulp.dest('dist/'));
 });
 
-gulp.task('js', ['js:copy', 'js:compress']);
+gulp.task('js', ['js:copy', 'js:compress', 'js:async']);
 
-
-/*
-gulp.task('js', function() {
-    return gulp.src('src/*.js')
-        .pipe(header(banner, {pkg : pkg}))
-		.pipe(gulp.dest('dist/'));
-});
-
-gulp.task('compress', ['js'], function() {
-    return gulp.src('src/*.js')
-		.pipe(header(banner, {pkg : pkg}))
-		.pipe(uglify())
-  		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('dist/'));
-});
-*/
 gulp.task('copy', function() {
     return gulp.src('dist/*.js')
 		.pipe(gulp.dest('example/src/libs/'));
