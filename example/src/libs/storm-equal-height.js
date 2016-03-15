@@ -1,6 +1,6 @@
 /**
  * @name storm-equal-height: Layout helper to equalise the height of a set of DOM elements
- * @version 0.1.0: Tue, 16 Feb 2016 20:19:41 GMT
+ * @version 0.5.0: Mon, 14 Mar 2016 20:49:48 GMT
  * @author stormid
  * @license MIT
  */(function(root, factory) {
@@ -18,61 +18,53 @@
         defaults = {
             minWidth: 768 
         },
-        merge = require('merge'),
-        throttle = require('lodash.throttle');
-    
-    
-    function StormEqualHeight(els, opts) {
-        this.settings = merge({}, defaults, opts);
-        this.DOMElements = els;
-        global.setTimeout(this.equalise.bind(this), 0);
-        global.addEventListener('resize', this.equalise.bind(this), false);
-        
-    }
-    
-    StormEqualHeight.prototype.equalise = function() {
-        var max = 0;
+		StormEqualHeight = {
+			init: function() {
+				this.throttledEqualise = STORM.UTILS.throttle(this.equalise, 60);
+				global.setTimeout(this.equalise.bind(this), 0);
+        		global.addEventListener('resize', this.throttledEqualise.bind(this), false);
+			},
+			equalise: function() {
+				var max = 0;
+				this.DOMElements.forEach(function(el){
+					el.style.height = 'auto';
+					if(el.offsetHeight > max) {
+						max = el.offsetHeight;
+					}
+				});
 
-        this.DOMElements.forEach(function(el){
-            el.style.height = 'auto';
-            if(el.offsetHeight > max) {
-                max = el.offsetHeight;
-            }
-        });
-        
-        if(window.innerWidth < this.settings.minWidth) { return; }
-        
-        this.DOMElements.forEach(function(el){
-            el.style.height = max + 'px';
-        });
-    };
-    
+				if(window.innerWidth < this.settings.minWidth) { return; }
+
+				this.DOMElements.forEach(function(el){
+					el.style.height = max + 'px';
+				});
+			}
+		};
+	
     function init(sel, opts) {
         var els = [].slice.call(document.querySelectorAll(sel));
         
         if(els.length === 0) {
             throw new Error('Equal Height cannot be initialised, no augmentable elements found');
         }
-        els.forEach(function(el){
-			instances.push(new StormEqualHeight([].slice.call(el.children), opts));
+        els.forEach(function(el, i){
+			instances[i] = STORM.UTILS.assign(Object.create(StormEqualHeight), {
+				DOMElements: [].slice.call(el.children),
+				settings: STORM.UTILS.merge({}, defaults, opts)
+			});
+			instances[i].init();
 		});
-        
         return instances;
     }
     
-    function reload(els, opts) {
-        destroy();
-        init(els, opts);
-    }
-    
-    function destroy() {
-        instances = null;
+    function reload(sel, opts) {
+		instances = [];
+		init(sel, opts)
     }
 	
 	return {
 		init: init,
-        reload: reload,
-        destroy: destroy
+        reload: reload
 	};
 	
  }));
