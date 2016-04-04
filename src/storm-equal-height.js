@@ -16,8 +16,8 @@
 		StormEqualHeight = {
 			init: function() {
 				this.throttledEqualise = STORM.UTILS.throttle(this.equalise, 60);
-				global.setTimeout(this.equalise.bind(this), 0);
-        		global.addEventListener('resize', this.throttledEqualise.bind(this), false);
+				window.setTimeout(this.equalise.bind(this), 0);
+        		window.addEventListener('resize', this.throttledEqualise.bind(this), false);
 			},
 			equalise: function() {
 				var max = 0;
