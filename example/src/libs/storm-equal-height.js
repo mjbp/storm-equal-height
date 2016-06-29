@@ -1,6 +1,6 @@
 /**
  * @name storm-equal-height: Layout helper to equalise the height of a set of DOM elements
- * @version 0.5.0: Wed, 29 Jun 2016 11:50:17 GMT
+ * @version 0.6.0: Wed, 29 Jun 2016 11:54:47 GMT
  * @author stormid
  * @license MIT
  */(function(root, factory) {
@@ -19,8 +19,8 @@
 		StormEqualHeight = {
 			init: function() {
 				this.throttledEqualise = STORM.UTILS.throttle(this.equalise, 60);
-				global.setTimeout(this.equalise.bind(this), 0);
-        		global.addEventListener('resize', this.throttledEqualise.bind(this), false);
+				window.setTimeout(this.equalise.bind(this), 0);
+        		window.addEventListener('resize', this.throttledEqualise.bind(this), false);
 			},
 			equalise: function() {
 				var max = 0;
