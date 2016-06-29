@@ -1,7 +1,5 @@
 (function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define([], factory);
-  } else if (typeof exports === 'object') {
+  if (typeof exports === 'object') {
     module.exports = factory();
   } else {
     root.StormEqualHeight = factory();
@@ -43,9 +41,9 @@
             throw new Error('Equal Height cannot be initialised, no augmentable elements found');
         }
         els.forEach(function(el, i){
-			instances[i] = STORM.UTILS.assign(Object.create(StormEqualHeight), {
+			instances[i] = Object.assign(Object.create(StormEqualHeight), {
 				DOMElements: [].slice.call(el.children),
-				settings: STORM.UTILS.merge({}, defaults, opts)
+				settings: Object.assign({}, defaults, opts)
 			});
 			instances[i].init();
 		});

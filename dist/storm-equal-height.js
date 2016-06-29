@@ -1,12 +1,10 @@
 /**
  * @name storm-equal-height: Layout helper to equalise the height of a set of DOM elements
- * @version 0.5.0: Mon, 14 Mar 2016 20:49:48 GMT
+ * @version 0.5.0: Wed, 29 Jun 2016 11:51:45 GMT
  * @author stormid
  * @license MIT
  */(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define([], factory);
-  } else if (typeof exports === 'object') {
+  if (typeof exports === 'object') {
     module.exports = factory();
   } else {
     root.StormEqualHeight = factory();
@@ -48,9 +46,9 @@
             throw new Error('Equal Height cannot be initialised, no augmentable elements found');
         }
         els.forEach(function(el, i){
-			instances[i] = STORM.UTILS.assign(Object.create(StormEqualHeight), {
+			instances[i] = Object.assign(Object.create(StormEqualHeight), {
 				DOMElements: [].slice.call(el.children),
-				settings: STORM.UTILS.merge({}, defaults, opts)
+				settings: Object.assign({}, defaults, opts)
 			});
 			instances[i].init();
 		});
