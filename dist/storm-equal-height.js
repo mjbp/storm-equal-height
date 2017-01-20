@@ -1,6 +1,6 @@
 /**
  * @name storm-equal-height: Layout helper to equalise the height of a set of DOM elements
- * @version 0.7.0: Fri, 11 Nov 2016 14:38:51 GMT
+ * @version 0.7.0: Fri, 20 Jan 2017 16:34:45 GMT
  * @author mjbp
  * @license MIT
  */
