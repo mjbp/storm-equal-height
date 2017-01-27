@@ -4,7 +4,7 @@
 [![codecov.io](http://codecov.io/github/mjbp/storm-equal-height/coverage.svg?branch=master)](http://codecov.io/github/mjbp/storm-equal-height?branch=master)
 [![npm version](https://badge.fury.io/js/storm-tab-accordion.svg)](https://badge.fury.io/js/storm-tab-accordion)
 
-Layout helper to equalise the height of a set of DOM elements
+Layout helper to equalise the height of a set of DOM elements. This is a last resort after CSS grid, flexbox, display:table, and min-heights have been discounted. If the elements contain asynchronously loaded assets, including imgs, you will need to inti this compononet after they have loaded.
 
 ##Usage
 HTML
@@ -82,7 +82,9 @@ This is module has both es6 and es5 distributions. The es6 version should be use
 The es5 version depends unpon Object.assign, element.classList, and Promises so all evergreen browsers are supported out of the box, ie9+ is supported with polyfills. ie8+ will work with even more polyfils for Array functions and eventListeners.
 
 ##Dependencies
-None
+None external.
+
+Imports lodash.throttle.
 
 ##License
 MIT
