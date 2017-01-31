@@ -1,10 +1,10 @@
 /**
  * @name storm-equal-height: Layout helper to equalise the height of a set of DOM elements
- * @version 0.7.0: Fri, 27 Jan 2017 14:12:08 GMT
+ * @version 0.7.0: Tue, 31 Jan 2017 13:37:13 GMT
  * @author mjbp
  * @license MIT
  */
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 
 const defaults = {
 		minWidth: 768 
