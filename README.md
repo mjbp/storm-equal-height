@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/mjbp/storm-equal-height.svg?branch=master)](https://travis-ci.org/mjbp/storm-equal-height)
 [![codecov.io](http://codecov.io/github/mjbp/storm-equal-height/coverage.svg?branch=master)](http://codecov.io/github/mjbp/storm-equal-height?branch=master)
-[![npm version](https://badge.fury.io/js/storm-tab-accordion.svg)](https://badge.fury.io/js/storm-tab-accordion)
+[![npm version](https://badge.fury.io/js/storm-equal-height.svg)](https://badge.fury.io/js/storm-equal-height)
 
 Layout helper to equalise the height of a set of DOM elements. This is a last resort after CSS grid, flexbox, display:table, and min-heights have been discounted. If the elements contain asynchronously loaded assets, including imgs, you will need to inti this compononet after they have loaded.
 
 ##Example
-[https://mjbp.github.io/storm-tab-accordion](https://mjbp.github.io/storm-equal-height)
+[https://mjbp.github.io/storm-equal-height](https://mjbp.github.io/storm-equal-height)
 
 ##Usage
 HTML
