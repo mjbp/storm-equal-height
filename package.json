@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/mjbp/storm-equal-height/issues"
   },
-  "main": "dist/storm-equal-height.min.js",
+  "main": "dist/storm-equal-height.js",
   "keywords": [
     "stormid",
     "UI",

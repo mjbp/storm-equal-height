@@ -58,12 +58,6 @@ e.g.
 EqualHeight.init('.js-equal-height');
 ```
 
-
-##API
-####`EqualHeight.init(selector, opts)`
-Initialise the module with a DOM selector and  options object
-
-
 ##Tests
 ```
 npm run test
