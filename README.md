@@ -6,6 +6,9 @@
 
 Layout helper to equalise the height of a set of DOM elements. This is a last resort after CSS grid, flexbox, display:table, and min-heights have been discounted. If the elements contain asynchronously loaded assets, including imgs, you will need to inti this compononet after they have loaded.
 
+##Example
+[https://mjbp.github.io/storm-tab-accordion](https://mjbp.github.io/storm-equal-height)
+
 ##Usage
 HTML
 ```
@@ -41,16 +44,6 @@ Load('/content/js/async/storm-equal-height.standalone.js')
         StormEqualHeight.init('.js-equal-height');
     });
 ```
-or es5 commonjs  (legacy, use the .standalone version in the /dist folder)
-```
-var EqualHeight = require('./libs/storm-equal-height');
-
-EqualHeight.init('.js-equal-height');
-```
-
-
-##Example
-[https://mjbp.github.io/storm-tab-accordion](https://mjbp.github.io/storm-equal-height)
 
 
 ##Options
@@ -79,7 +72,7 @@ npm run test
 ##Browser support
 This is module has both es6 and es5 distributions. The es6 version should be used in a workflow that transpiles.
 
-The es5 version depends unpon Object.assign, element.classList, and Promises so all evergreen browsers are supported out of the box, ie9+ is supported with polyfills. ie8+ will work with even more polyfils for Array functions and eventListeners.
+This module depends upon Object.assign, element.classList, and Promises, available in all evergreen browsers. ie9+ is supported with polyfills, ie8+ will work with even more polyfills for Array functions and eventListeners.
 
 ##Dependencies
 None external.
