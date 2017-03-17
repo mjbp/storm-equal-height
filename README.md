@@ -1,4 +1,4 @@
-#Storm Equal Height
+# Storm Equal Height
 
 [![Build Status](https://travis-ci.org/mjbp/storm-equal-height.svg?branch=master)](https://travis-ci.org/mjbp/storm-equal-height)
 [![codecov.io](http://codecov.io/github/mjbp/storm-equal-height/coverage.svg?branch=master)](http://codecov.io/github/mjbp/storm-equal-height?branch=master)
@@ -6,10 +6,10 @@
 
 Layout helper to equalise the height of a set of DOM elements. This is a last resort after CSS grid, flexbox, display:table, and min-heights have been discounted. If the elements contain asynchronously loaded assets, including imgs, you will need to inti this compononet after they have loaded.
 
-##Example
+## Example
 [https://mjbp.github.io/storm-equal-height](https://mjbp.github.io/storm-equal-height)
 
-##Usage
+## Usage
 HTML
 ```
 <div class="js-equal-height">
@@ -46,7 +46,7 @@ Load('/content/js/async/storm-equal-height.standalone.js')
 ```
 
 
-##Options
+## Options
 ```
     {
         minWidth: 768 
@@ -58,20 +58,20 @@ e.g.
 EqualHeight.init('.js-equal-height');
 ```
 
-##Tests
+## Tests
 ```
 npm run test
 ```
 
-##Browser support
+## Browser support
 This is module has both es6 and es5 distributions. The es6 version should be used in a workflow that transpiles.
 
 This module depends upon Object.assign, element.classList, and Promises, available in all evergreen browsers. ie9+ is supported with polyfills, ie8+ will work with even more polyfills for Array functions and eventListeners.
 
-##Dependencies
+## Dependencies
 None external.
 
 Imports lodash.throttle.
 
-##License
+## License
 MIT
