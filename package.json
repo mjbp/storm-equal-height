@@ -1,6 +1,6 @@
 {
   "name": "storm-equal-height",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Layout helper to equalise the height of a set of DOM elements",
   "author": "mjbp",
   "license": "MIT",
